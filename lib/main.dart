@@ -215,7 +215,7 @@ class _IoTDeviceDashboardState extends State<IoTDeviceDashboard> {
                   itemBuilder: (context, index) {
                     final t = telemetries[index];
                     return ListTile(
-                      title: Text(t.value),
+                      title: Text(t.payload),
                       subtitle: Text(t.timestamp),
                     );
                   },
@@ -315,9 +315,9 @@ class Device {
 
 class Telemetry {
   final String timestamp;
-  final String value;
-  Telemetry({required this.timestamp, required this.value});
+  final String payload;
+  Telemetry({required this.timestamp, required this.payload});
   factory Telemetry.fromJson(Map<String, dynamic> json) {
-    return Telemetry(timestamp: json['timestamp'], value: json['value']);
+    return Telemetry(timestamp: json['timestamp'], payload: json['payload']);
   }
 }
